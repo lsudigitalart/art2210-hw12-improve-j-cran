@@ -1,4 +1,5 @@
 let jamPlay, fft, amp, level, cheeseSize, trumpetSize, cheeseImg, trumpetImg, addImage1, addImage2, addImage3, addImage4, cheeseLocation;
+let randomX,randomY
 let hue = 0;
 
 function preload(){
@@ -19,12 +20,16 @@ function setup(){
     jamPlay.addCue(1.1,makeImage2)
     jamPlay.addCue(2.2,makeImage3)
     jamPlay.addCue(3.1,makeImage4)
+    jamPlay.addCue(5.1,makeImage5)
 
 }
 
 function draw(){
     background(hue,280,180);
     hue+=0.5 // slow colour transition 
+
+    randomX = random(0,1200);
+    randomY = random(0,600);
 
     fill(0);
     textFont("courier new")                   
@@ -65,6 +70,10 @@ function draw(){
         pop(); 
     }
 
+    if(addImage5===true){
+        image(cheeseImg,900,100,500,500);
+    }
+
 }
 
 
@@ -92,4 +101,8 @@ function makeImage3(){
 
 function makeImage4(){
     addImage4=true
+}
+
+function makeImage5(){
+    addImage5=true
 }
